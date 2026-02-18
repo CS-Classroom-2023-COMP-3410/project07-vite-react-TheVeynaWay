@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Counter from '../components/Counter';
 import Card from '../components/Card';
 import Button from '../components/Button';
+import Cart from '../components/Cart';
 
-function HomePage({ onNavigate }) {
+function HomePage({ onNavigate,cart,setCart }) {
     const [message, setMessage] = useState('Welcome to our React application!');
     const [showFeatures, setShowFeatures] = useState(false);
 
@@ -40,6 +41,11 @@ function HomePage({ onNavigate }) {
     return (
         <div>
             <h1>Home Page</h1>
+
+            {/* Cart sidebar */}
+            {cart.length > 0 && (
+                <Cart cart={cart} setCart={setCart} />
+            )}
 
             <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
                 <h2>{message}</h2>
