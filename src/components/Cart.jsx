@@ -13,11 +13,6 @@ function Cart({ cart, setCart }) {
         const item = cart.find(item => item.id === productId);
         if (!item) return;
 
-        // Update product stock
-        //setProducts(products.map(p =>
-        //    p.id === productId ? { ...p, stock: p.stock + 1 } : p
-        //));
-
         // Update cart
         if (item.quantity > 1) {
             setCart(cart.map(item =>
