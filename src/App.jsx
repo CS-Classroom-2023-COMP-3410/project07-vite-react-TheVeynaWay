@@ -16,7 +16,7 @@ function App() {
             case 'products':
                 return <ProductsPage cart={cart} setCart={setCart}/>;
             case 'profile':
-                return <ProfilePage />;
+                return <ProfilePage cart={cart} setCart={setCart}/>;
             case 'home':
             default:
                 return <HomePage onNavigate={handleNavigate} cart={cart} setCart={setCart}/>;

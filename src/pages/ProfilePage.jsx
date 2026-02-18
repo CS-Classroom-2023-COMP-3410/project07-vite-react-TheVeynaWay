@@ -3,8 +3,9 @@ import UserForm from '../components/UserForm';
 import Card from '../components/Card';
 import Counter from '../components/Counter';
 import Button from '../components/Button';
+import Cart from '../components/Cart';
 
-function ProfilePage() {
+function ProfilePage({ cart, setCart }) {
     // User profile state
     const [userProfile, setUserProfile] = useState({
         name: 'Guest User',
@@ -79,6 +80,11 @@ function ProfilePage() {
     return (
         <div>
             <h1>User Profile</h1>
+
+            {/* Cart sidebar */}
+            {cart.length > 0 && (
+                <Cart cart={cart} setCart={setCart} />
+            )}
 
             {isEditing ? (
                 <div style={{ marginBottom: '30px' }}>
