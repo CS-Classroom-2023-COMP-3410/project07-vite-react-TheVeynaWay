@@ -3,7 +3,9 @@ import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProfilePage from './pages/ProfilePage';
+
 function App() {
+    const [cart, setCart] = useState([]);
     const [currentPage, setCurrentPage] = useState('home');// Simple navigation state management
     const handleNavigate = (pageId) => {
         setCurrentPage(pageId);// This could be expanded to handle page transition animations
@@ -12,12 +14,12 @@ function App() {
     const renderPage = () => {
         switch (currentPage) {
             case 'products':
-                return <ProductsPage />;
+                return <ProductsPage cart={cart} setCart={setCart}/>;
             case 'profile':
                 return <ProfilePage />;
             case 'home':
             default:
-                return <HomePage onNavigate={handleNavigate} />;
+                return <HomePage onNavigate={handleNavigate} cart={cart} setCart={setCart}/>;
         }
     };
     return (
